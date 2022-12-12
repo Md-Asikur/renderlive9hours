@@ -71,14 +71,18 @@ function CreateProduct() {
        formData.append("file",file );
 
       setLoading(true);
-      const res = await axios.post("/api/upload", formData, {
-        method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data",
+      const res = await axios.post(
+        "https://ecommerce9hours-asikur.onrender.com/api/upload",
+        formData,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "multipart/form-data",
 
-          Authorization: token,
-        },
-      });
+            Authorization: token,
+          },
+        }
+      );
         setLoading(false);
         console.log(res)
         setImages(res.data);
@@ -92,7 +96,7 @@ function CreateProduct() {
       if (!isAdmin) return alert("You're not an admin");
       setLoading(true);
       await axios.post(
-        "/api/destroy",
+        "https://ecommerce9hours-asikur.onrender.com/api/destroy",
         { public_id: images.public_id },
         {
           headers: { Authorization: token },
@@ -118,7 +122,7 @@ function CreateProduct() {
 
       if (onEdit) {
         await axios.put(
-          `/api/products/${product._id}`,
+          `https://ecommerce9hours-asikur.onrender.com/api/products/${product._id}`,
           { ...product, images },
           {
             headers: { Authorization: token },
@@ -126,7 +130,7 @@ function CreateProduct() {
         );
       } else {
         await axios.post(
-          "/api/products",
+          "https://ecommerce9hours-asikur.onrender.com/api/products",
           { ...product, images },
           {
             headers: { Authorization: token },

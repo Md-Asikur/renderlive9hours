@@ -17,7 +17,9 @@ function Register() {
   const registerSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/user/register", { ...user });
+      await axios.post("https://ecommerce9hours-asikur.onrender.com/user/register", {
+        ...user,
+      });
 
       localStorage.setItem("firstLogin", true);
 

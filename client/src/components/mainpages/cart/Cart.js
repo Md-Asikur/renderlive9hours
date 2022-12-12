@@ -23,7 +23,7 @@ function Cart() {
 
   const addToCart = async (cart) => {
     await axios.patch(
-      "/user/addcart",
+      "https://ecommerce9hours-asikur.onrender.com/user/addcart",
       { cart },
       {
         headers: { Authorization: token },
@@ -71,7 +71,7 @@ function Cart() {
     console.log(payment)
 
     await axios.post(
-      "/api/payment",
+      "https://ecommerce9hours-asikur.onrender.com/api/payment",
       { cart, paymentID, address },
       {
         headers: { Authorization: token },

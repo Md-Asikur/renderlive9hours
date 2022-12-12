@@ -26,15 +26,18 @@ function Products() {
     try {
       setLoading(true);
       const destroyImg = axios.post(
-        "/api/destroy",
+        "https://ecommerce9hours-asikur.onrender.com/api/destroy",
         { public_id },
         {
           headers: { Authorization: token },
         }
       );
-      const deleteProduct = axios.delete(`/api/products/${id}`, {
-        headers: { Authorization: token },
-      });
+      const deleteProduct = axios.delete(
+        `https://ecommerce9hours-asikur.onrender.com/api/products/${id}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
 
       await destroyImg;
       await deleteProduct;

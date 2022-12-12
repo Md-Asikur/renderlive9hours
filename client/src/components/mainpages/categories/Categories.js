@@ -16,7 +16,7 @@ function Categories() {
     try {
       if (onEdit) {
         const res = await axios.put(
-          `/api/category/${id}`,
+          `https://ecommerce9hours-asikur.onrender.com/api/category/${id}`,
           { name: category },
           {
             headers: { Authorization: token },
@@ -25,7 +25,7 @@ function Categories() {
         alert(res.data.msg);
       } else {
         const res = await axios.post(
-          "/api/category",
+          "https://ecommerce9hours-asikur.onrender.com/api/category",
           { name: category },
           {
             headers: { Authorization: token },
@@ -49,9 +49,12 @@ function Categories() {
 
   const deleteCategory = async (id) => {
     try {
-      const res = await axios.delete(`/api/category/${id}`, {
-        headers: { Authorization: token },
-      });
+      const res = await axios.delete(
+        `https://ecommerce9hours-asikur.onrender.com/api/category/${id}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
       alert(res.data.msg);
       setCallback(!callback);
     } catch (err) {
